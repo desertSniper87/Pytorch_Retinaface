@@ -115,7 +115,11 @@ def convert_image(image_path):
     b = dets[0]
     b = list(map(int, b))
     img_cropped = img_raw[b[0]:b[2], b[1]:b[3]]
-    cv2.imwrite(image_path, img_cropped)
+    
+    stretch_near = cv2.resize(img_cropped, (112, 112),
+        interpolation = cv2.INTER_LINEAR)
+
+    cv2.imwrite(image_path, stretch_near)
 
 
 if __name__ == '__main__':
@@ -134,7 +138,7 @@ if __name__ == '__main__':
 
     resize = 1
 
-    root = '/home/torsho/dev/insightface/recognition/arcface_torch/eval/personai_icartoonface_rectest/icartoonface_rectest'
+    root = '/tmp/personai_icartoonface_rectest/icartoonface_rectest'
 
     for path, subdirs, files in os.walk(root):
         for name in files:
