@@ -134,7 +134,7 @@ if __name__ == '__main__':
 
     resize = 1
 
-    root = '/root/face-rnd/dat/personai_icartoonface_rectrain/icartoonface_rectrain'
+    root = '/home/torsho/dev/insightface/recognition/arcface_torch/eval/personai_icartoonface_rectest/icartoonface_rectest'
 
     for path, subdirs, files in os.walk(root):
         for name in files:
@@ -147,3 +147,4 @@ if __name__ == '__main__':
             except Exception as e:
             
                 print(e)
+
